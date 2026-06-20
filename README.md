@@ -1,2 +1,15 @@
 # HeteroFuse-demo
-HeteroFuse orchestrates multiple LLMs in adversarial rounds—critiquing and refining each other. An independent safety layer scores every response. If dangerous content is detected, the model is fused off. When extreme jailbreaks hit, a global fuse blocks all output entirely. Validated with real attacks.
+
+全域异构熔断式多模型博弈迭代架构（HeteroFuse），是一个让多个大模型互相博弈、自动发现并拦截越狱攻击的安全测试框架。
+
+## 核心机制
+- **三层异构模型池**：防止单模型下架或封禁导致的系统性瘫痪。
+- **博弈对抗迭代**：模型互相批评、挑错、修正，在竞争中提升输出质量。
+- **独立安全仲裁层**：不依赖任何大模型的规则引擎，对所有输出进行合规评分。
+- **智能熔断降级**：检测到危险内容立即禁用该模型，极端情况全局熔断，宁可不回答，也不输出风险内容。
+
+## 验证结果
+已使用真实越狱攻击（角色扮演、学术伪装）进行测试，成功触发全局熔断，证明分层防御机制有效。
+
+## 版权声明
+本项目的“全域异构熔断式多模型博弈迭代架构”为作者原创设计，采用 Apache 2.0 许可证开源。
